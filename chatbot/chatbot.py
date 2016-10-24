@@ -1,14 +1,22 @@
-text_file = open("stopwords.txt")
-#lines = text_file.readlines()
-#print lines
-#print len(lines)
-#text_file.close()
+text_file = open("stop-words.txt")
+lines = text_file.readlines()
+
+def stopwords(response): 
+	response = " " + response
+	for word in lines:
+		response = response.replace(" " + word[0:-1] + " ", " ")
+	return response
+	
+
+
+
 
 response = raw_input("What is your name ? ")
+response = stopwords(response)
 print("Hello " + response)
 
-band = raw_input("what is your favourite band?")
-print("I also like "+ band)
+response = raw_input("what is your favourite band?")
+print("I also like "+ response)
 
 response = raw_input("you may like music but what about alcohol, do you like a tipple?")
 if(response == "No"): print("tee total hey?")
